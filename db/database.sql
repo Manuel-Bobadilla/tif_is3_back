@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS contador;
+
+USE contador;
+
+CREATE TABLE contador (
+    id INT NOT NULL AUTO_INCREMENT,
+    valor INT DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO contador VALUES (1, 0);
