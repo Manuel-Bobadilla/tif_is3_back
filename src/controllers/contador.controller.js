@@ -7,7 +7,6 @@ export const getContador = async (req, res) => {
 
     if(rows.length){
         res.json(rows[0])
-        console.log("mostrando")
     }else{
         return res.status(404).json({
             message: 'Contador no encontrado'
@@ -42,7 +41,6 @@ export const incrementarContador = async (req, res) => {
         const valorNuevoContador = contador[0][0].valor + 1
 
         await pool.query('UPDATE contador SET valor = (?)', [valorNuevoContador])
-        console.log("incrementado")
         res.send({
             valor: valorNuevoContador
         })
@@ -64,7 +62,6 @@ export const decrementarContador = async (req, res) => {
         const valorNuevoContador = contador[0][0].valor - 1
 
         await pool.query('UPDATE contador SET valor = (?)', [valorNuevoContador])
-        console.log("decremento")
         res.send({
             valor: valorNuevoContador
         })
