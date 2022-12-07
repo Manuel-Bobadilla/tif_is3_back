@@ -7,9 +7,9 @@ router.get('/contador', getContador)
 
 router.post('/contador', createContador)
 
-router.put('/contador/incrementar', incrementarContador)
+router.get('/contador/incrementar', incrementarContador)
 
-router.put('/contador/decrementar', decrementarContador)
+router.get('/contador/decrementar', decrementarContador)
 
 router.delete('/contador', deleteContador)
 
