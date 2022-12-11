@@ -8,5 +8,3 @@ app.use(express.json())
 app.use(contadorRoutes)
 
 app.listen(3000)
-
-console.log('server en puerto 3000')

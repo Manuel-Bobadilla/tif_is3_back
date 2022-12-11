@@ -1,5 +1,13 @@
 import {pool} from '../db.js'
 
+export function incrementar(valor){
+    return (valor + 1)
+}
+
+export function decrementar(valor){
+    return (valor - 1)
+}
+
 export const getContador = async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM contador where id = 1')
 
@@ -38,7 +46,7 @@ export const incrementarContador = async (req, res) => {
     res.set('Access-Control-Allow-Origin', '*')
 
     if(contador [0][0]){
-        const valorNuevoContador = contador[0][0].valor + 1
+        const valorNuevoContador = incrementar(contador[0][0].valor)
 
         await pool.query('UPDATE contador SET valor = (?)', [valorNuevoContador])
         res.send({
@@ -49,7 +57,6 @@ export const incrementarContador = async (req, res) => {
             message: 'Contador no encontrado'
         })
     }
-    
 
 }
 
@@ -59,7 +66,7 @@ export const decrementarContador = async (req, res) => {
     res.set('Access-Control-Allow-Origin', '*')
 
     if(contador [0][0]){
-        const valorNuevoContador = contador[0][0].valor - 1
+        const valorNuevoContador = decrementar(contador[0][0].valor)
 
         await pool.query('UPDATE contador SET valor = (?)', [valorNuevoContador])
         res.send({
