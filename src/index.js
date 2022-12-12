@@ -7,4 +7,6 @@ app.use(express.json())
 
 app.use(contadorRoutes)
 
-app.listen(3000)
+console.log(process.env.PORT)
+
+app.listen(process.env.PORT)
