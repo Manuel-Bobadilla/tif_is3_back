@@ -94,3 +94,21 @@ export const deleteContador = async (req, res) => {
     }
     
 }
+
+export const reiniciarContador = async (req, res) => {
+    const contador = await pool.query('SELECT valor FROM contador where id = 1')
+    
+    res.set('Access-Control-Allow-Origin', '*')
+
+    if(contador [0][0]){
+        await pool.query('UPDATE contador SET valor = 0')
+        res.send({
+            valor: 0
+        })
+    }else{
+        return res.status(404).json({
+            message: 'Contador no encontrado'
+        })
+    }
+
+}
