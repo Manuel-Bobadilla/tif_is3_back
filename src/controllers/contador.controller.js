@@ -1,7 +1,7 @@
 import {pool} from '../db.js'
 
 export function incrementar(valor){
-    return (valor + 10)
+    return (valor + 1)
 }
 
 export function decrementar(valor){
